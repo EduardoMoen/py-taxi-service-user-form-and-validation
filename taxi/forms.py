@@ -25,5 +25,7 @@ class CarCreationForm(forms.ModelForm):
 
 class DriverCreationForm(UserCreationForm):
     class Meta(UserCreationForm.Meta):
-        model = Driver
-        fields = UserCreationForm.Meta.fields
+        model = get_user_model()
+        fields = UserCreationForm.Meta.fields + (
+            "first_name", "last_name", "license_number"
+        )
